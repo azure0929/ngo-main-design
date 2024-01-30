@@ -85,13 +85,6 @@ $(window).scroll(function () {
   } else {
     $(".btn-open").removeClass("active");
   }
-
-  /* 상단으로 가기 부분 */
-  if ($(window).scrollTop() > 300) {
-    $(".top").addClass("active");
-  } else {
-    $(".top").removeClass("active");
-  }
 });
 
 /* Btn */
