@@ -7,6 +7,14 @@
 /* XEicon 2.3.3 CDN */
 @import url("http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
 
+@font-face {
+  font-family: "Eulyoo1945-SemiBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Default CSS */
 html {
   scroll-behavior: smooth;
@@ -104,33 +112,49 @@ nav {
   border-radius: 20px;
   background-color: #669999;
   cursor: pointer;
-  transform: translateX(1000px);
-  transition: 2s;
+  transform: translateX(300px);
+  transition: 1s;
 }
 .gnb .btn-open.active {
   transform: translateX(0);
 }
 
-/* Section : Intro */
-@font-face {
-  font-family: "Eulyoo1945-SemiBold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+/* Language */
+.language-toggle {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translate(-30px, -50%);
+  display: flex;
+  gap: 10px;
 }
+
+.language-toggle button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #669999;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.language-toggle button:hover {
+  background-color: #6699cc;
+}
+
+/* Section : Intro */
 video {
+  position: relative;
   width: 100%;
 }
 .intro-slogan {
   font-family: "Eulyoo1945-SemiBold";
-  width: 800px;
-  height: 150px;
   position: absolute;
-  top: 720px;
-  right: 100px;
-  text-align: center;
+  bottom: 30px;
+  right: 30px;
   color: #f1f1f1;
+  text-align: center;
 }
 .intro-slogan h2 {
   font-size: 50px;
@@ -150,7 +174,7 @@ video {
 .tab-current {
   height: 350px;
 }
-.tab-current > div {
+.tab-current .animal {
   background-color: #6699cc;
   width: 250px;
   height: 330px;
@@ -160,8 +184,12 @@ video {
   cursor: pointer;
   transition: 0.5s;
 }
-.tab-current > div:hover {
+.tab-current .animal .photo {
+  overflow: hidden;
+}
+.tab-current .animal:hover .photo img {
   transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 .current p {
   font-size: 24px;
@@ -463,6 +491,17 @@ footer {
 .copyright .sel div {
   display: flex;
   gap: 20px;
+  justify-content: space-between;
+}
+.copyright .sel div select {
+  outline: none;
+  border: 2px solid #99cccc;
+  border-radius: 20px;
+  color: #99cccc;
+  font-size: 12px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  background-color: transparent;
 }
 .copyright span {
   font-size: 14px;
@@ -473,7 +512,6 @@ footer {
   line-height: 1.8em;
 }
 .copyright button:nth-child(1) {
-  border: 2px solid #99cccc;
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -515,36 +553,33 @@ input::placeholder {
 .modal-support {
   position: fixed;
   top: 100px;
-  right: 420px;
-  opacity: 0;
+  right: 120px;
   visibility: hidden;
-  z-index: 3;
+  opacity: 0;
   transition: 0.5s;
+  z-index: 100;
 }
 .modal-support.active {
   opacity: 1;
   visibility: visible;
 }
 .modal-support .support {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 350px;
-  height: 450px;
+  height: 400px;
+  padding: 30px;
   border-radius: 30px;
-  background-color: #fff;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-.support i {
-  color: #6699cc;
-  font-size: 20px;
-  margin-left: 300px;
-  margin-top: 20px;
-  cursor: pointer;
+  background-color: #fff;
+  z-index: -1;
 }
 .support h1 {
-  font-size: 35px;
+  font-size: 30px;
   color: #6699cc;
 }
 .support h4 {
-  width: 270px;
   margin: auto;
   margin-top: 10px;
   font-size: 14px;
@@ -555,7 +590,8 @@ input::placeholder {
 .support label input {
   outline: none;
   border: 1px solid #99cccc;
-  width: 270px;
+  width: 100%;
+  padding: 0 10px;
   height: 28px;
   border-radius: 5px;
 }
@@ -563,10 +599,6 @@ input::placeholder {
   transition: 0.1s;
   font-size: 10px;
   letter-spacing: 1px;
-}
-input[name="submit"]:hover {
-  color: #99cccc;
-  border: 2px solid #6699cc;
 }
 .support-check label {
   margin: 0 16px;
@@ -594,6 +626,21 @@ input[id="chk"]:checked + em {
   border-radius: 20px;
   color: #f1f1f1;
   background-color: #6699cc;
+}
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  z-index: 100;
+  cursor: pointer;
+}
+.btn-close img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 /* 상단으로 */
