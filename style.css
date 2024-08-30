@@ -112,8 +112,8 @@ nav {
   border-radius: 20px;
   background-color: #669999;
   cursor: pointer;
-  transform: translateX(300px);
-  transition: 1s;
+  transform: translateX(1000px);
+  transition: 1.3s;
 }
 .gnb .btn-open.active {
   transform: translateX(0);
