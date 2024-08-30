@@ -349,7 +349,7 @@ input[id="tab4"]:checked ~ .items .item:nth-child(4) {
   margin-top: 40px;
   height: 350px;
   padding-top: 20px;
-  background: url(images/image-21.jpg);
+  background: url(images/image-21.webp);
 }
 .faq p {
   text-align: center;
@@ -449,7 +449,7 @@ input[type="checkbox"] {
 /* Footer */
 footer {
   margin-top: 30px;
-  background: url(images/image-22.jpg);
+  background: url(images/image-22.webp);
   height: 350px;
   padding-top: 30px;
 }
