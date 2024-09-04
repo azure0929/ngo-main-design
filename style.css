@@ -144,9 +144,13 @@ nav {
 }
 
 /* Section : Intro */
+.intro {
+  position: relative;
+}
 video {
   position: relative;
   width: 100%;
+  z-index: -1;
 }
 .intro-slogan {
   font-family: "Eulyoo1945-SemiBold";
