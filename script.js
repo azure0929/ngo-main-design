@@ -49,7 +49,7 @@ $(document).ready(function () {
   });
 
   // 입력 필드가 초기화될 때 테두리 색상 변경
-  $("input").on("input", function () {
+  $(".modal input").on("input", function () {
     const value = $(this).val();
     if (value === "") {
       $(this).css("border", "1px solid #cbcbcb");
