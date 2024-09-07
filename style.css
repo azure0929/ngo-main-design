@@ -30,11 +30,6 @@ a {
   color: #191919;
   text-decoration: none;
 }
-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
 
 /* Header */
 header {
@@ -183,10 +178,15 @@ video {
   cursor: pointer;
   overflow: hidden;
 }
-.current .inner .animal-list .animal:hover .photo {
+.current .inner .animal-list .animal .photo {
   width: 250px;
   height: 250px;
   overflow: hidden;
+}
+.current .inner .animal-list .animal .photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .current .inner .animal-list .animal:hover .photo img {
   transition: 0.3s;
@@ -224,157 +224,26 @@ video {
   font-size: 14px;
 }
 
-/* Section : Activity */
-.activity {
-  margin-top: 120px;
-}
-.activity-inner {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-.activity-inner p {
-  font-size: 24px;
-  text-align: center;
-  color: #171717;
-}
-.left {
-  background-color: #ddd;
-  float: left;
-  width: 936px;
-  height: 522px;
-  margin-left: 10px;
-}
-.right {
-  float: right;
-  width: 450px;
-  height: 522px;
-  margin-right: 10px;
-}
-.right div {
-  background-color: #ddd;
-  width: 446px;
-  height: 250px;
-}
-.right div:nth-child(1) {
-  margin-bottom: 20px;
-}
-
-/* Section : Promotion */
-.promotion-inner {
-  width: 1440px;
-  height: 630px;
-  margin: auto;
-  padding: 50px 0;
-}
-.promotion-inner p {
-  margin-top: -40px;
-  font-size: 24px;
-  text-align: center;
-  color: #171717;
-}
-.content-promotion {
-  margin: auto;
-  /*overflow: hidden;*/
-}
-.tab-promotion .btn {
-  text-align: center;
-}
-.tab-promotion .btn label {
-  display: inline-block;
-  background-color: transparent;
-  border: 2px solid #6699cc;
-  width: 135px;
-  height: 35px;
-  margin: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.35s;
-}
-.tab-promotion label:hover {
-  background-color: #6699cc;
-  color: #f1f1f1;
-}
-.items {
-  height: 500px;
-  margin: auto;
-  margin-top: 18px;
-  overflow: hidden;
-  position: relative;
-}
-.item {
-  width: 100%;
-  height: inherit;
-  /*display: none;*/
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s;
-}
-.item img {
-  float: left;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
-  cursor: pointer;
-  transition: 0.5s;
-}
-.item img:hover {
-  transform: scale(1.03);
-}
-.item:nth-child(1) img,
-.item:nth-child(2) img {
-  margin: 0 10px;
-}
-.item:nth-child(3) img {
-  margin: 0 23px;
-}
-.item:nth-child(4) img {
-  margin: 0 10px;
-}
-
-/* Promotion Checked Function */
-input[name="tabmenu"] {
-  display: none;
-}
-input[id="tab1"]:checked ~ .btn label[for="tab1"],
-input[id="tab2"]:checked ~ .btn label[for="tab2"],
-input[id="tab3"]:checked ~ .btn label[for="tab3"],
-input[id="tab4"]:checked ~ .btn label[for="tab4"] {
-  background-color: #6699cc;
-  color: #f1f1f1;
-}
-
-input[id="tab1"]:checked ~ .items .item:nth-child(1),
-input[id="tab2"]:checked ~ .items .item:nth-child(2),
-input[id="tab3"]:checked ~ .items .item:nth-child(3),
-input[id="tab4"]:checked ~ .items .item:nth-child(4) {
-  /*display: block;*/
-  opacity: 1;
-  visibility: visible;
-}
-
 /* Section : Faq */
 .faq {
-  margin-top: 40px;
+  margin-top: 120px;
   height: 350px;
   padding-top: 20px;
   background: url(images/image-21.webp);
 }
 .faq p {
-  text-align: center;
   margin-top: 0;
-  color: #f1f1f1;
   font-size: 24px;
+  text-align: center;
+  color: #f1f1f1;
 }
 .faq-accordion {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 1000px;
-  height: 320px;
-  margin: auto;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
 }
 .accordion {
   width: 430px;
@@ -386,12 +255,12 @@ input[id="tab4"]:checked ~ .items .item:nth-child(4) {
   padding-top: 10px;
 }
 .accordion label {
+  background-color: transparent;
   display: block;
   width: 430px;
   height: 30px;
   margin-top: 12px;
   padding: 0 10px;
-  background-color: transparent;
   border: 2px solid #6699cc;
   border-radius: 10px;
   color: #f1f1f1;
@@ -403,8 +272,6 @@ input[id="tab4"]:checked ~ .items .item:nth-child(4) {
 input[name="faq"] {
   display: none;
 }
-
-/* Faq Checked Funtion */
 input[id="answer1"]:checked ~ .btn-faq label[for="answer1"],
 input[id="answer2"]:checked ~ .btn-faq label[for="answer2"],
 input[id="answer3"]:checked ~ .btn-faq label[for="answer3"],
@@ -447,14 +314,125 @@ input[id="answer5"]:checked ~ .faq-content .faq-introduce:nth-child(5) {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #6699cc;
   margin: 0 5px;
+  color: #f1f1f1;
+  background-color: #6699cc;
+}
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Section : activity */
+.activity {
+  margin-top: 120px;
+}
+.activity .inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.activity .inner p {
+  font-size: 24px;
+  text-align: center;
+  color: #191919;
+}
+.activity .inner > div {
+  display: flex;
+  gap: 20px;
+  height: 460px;
+}
+.activity .inner > div .right {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.activity .inner > div .right div {
+  height: calc(100% - 20px);
+}
+
+/* Section : Promotion */
+.promotion {
+  margin-top: 120px;
+}
+.promotion .inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.promotion .inner p {
+  font-size: 24px;
+  text-align: center;
+  color: #191919;
+}
+.promotion .inner .tab-promotion .btn {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+}
+.promotion .inner .tab-promotion .btn label {
+  display: inline-block;
+  border: 2px solid #6699cc;
+  border-radius: 30px;
+  width: 136px;
+  height: 36px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.35s;
+}
+.promotion .inner .tab-promotion label:hover {
+  background-color: #6699cc;
+  color: #f1f1f1;
+}
+.promotion .inner .tab-promotion .items {
+  position: relative;
+  display: flex;
+  height: 500px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.promotion .inner .tab-promotion .items .item {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.promotion .inner .tab-promotion .items .item a {
+  flex: 1;
+  width: calc(100% / 4);
+}
+.promotion .inner .tab-promotion .items .item img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.5s;
+}
+input[name="tabmenu"] {
+  display: none;
+}
+input[id="tab1"]:checked ~ .btn label[for="tab1"],
+input[id="tab2"]:checked ~ .btn label[for="tab2"],
+input[id="tab3"]:checked ~ .btn label[for="tab3"],
+input[id="tab4"]:checked ~ .btn label[for="tab4"] {
+  background-color: #6699cc;
   color: #f1f1f1;
 }
 
-/* input[type=checkbox] */
-input[type="checkbox"] {
-  display: none;
+input[id="tab1"]:checked ~ .items .item:nth-child(1),
+input[id="tab2"]:checked ~ .items .item:nth-child(2),
+input[id="tab3"]:checked ~ .items .item:nth-child(3),
+input[id="tab4"]:checked ~ .items .item:nth-child(4) {
+  /*display: block;*/
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Footer */
