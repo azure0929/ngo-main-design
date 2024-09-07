@@ -539,7 +539,7 @@ input::placeholder {
 }
 
 /* Modal-support */
-.modal-support {
+.modal {
   position: fixed;
   top: 100px;
   right: 120px;
@@ -548,51 +548,63 @@ input::placeholder {
   transition: 0.5s;
   z-index: 100;
 }
-.modal-support.active {
+.modal.active {
   opacity: 1;
   visibility: visible;
 }
-.modal-support .support {
+.modal .inner {
   position: absolute;
   top: 0;
   right: 0;
   width: 350px;
-  height: 400px;
   padding: 30px;
-  border-radius: 30px;
+  border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   background-color: #fff;
   z-index: -1;
 }
-.support h1 {
+.modal .inner h1 {
   font-size: 30px;
+  text-align: center;
   color: #6699cc;
 }
-.support h4 {
+.modal .inner h4 {
   margin: auto;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 20px;
   text-align: left;
   color: #669999;
   font-weight: normal;
 }
-.support label input {
+.modal .inner label input {
+  margin-top: 8px;
   outline: none;
-  border: 1px solid #99cccc;
   width: 100%;
   padding: 0 10px;
-  height: 28px;
-  border-radius: 5px;
+  height: 36px;
+  border-radius: 6px;
+}
+input[type="text"],
+input[type="email"],
+input[type="address"] {
+  border: 1px solid #cbcbcb;
+  transition: border-color 0.3s ease;
+}
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border: 1px solid #669999;
 }
 input::placeholder {
   transition: 0.1s;
-  font-size: 10px;
+  font-size: 14px;
+  color: #cbcbcb;
   letter-spacing: 1px;
 }
-.support-check label {
-  margin: 0 16px;
-  margin-top: 10px;
-  font-size: 12px;
+.modal .inner .support-check {
+  margin-top: 12px;
+}
+.modal .inner .support-check label {
+  font-size: 14px;
+  color: #99cccc;
 }
 input[id="chk"] + em {
   width: 20px;
@@ -606,30 +618,48 @@ input[id="chk"] + em {
 input[id="chk"]:checked + em {
   background-position: right;
 }
-.support a {
-  display: block;
-  width: 100px;
-  height: 30px;
-  margin-top: 20px;
-  margin-left: 120px;
-  border-radius: 20px;
+.modal .inner button {
+  border: none;
+  cursor: pointer;
+}
+.modal .inner button.search {
+  margin-top: 6px;
+  border-radius: 4px;
+  width: 70px;
+  height: 26px;
   color: #f1f1f1;
+  background-color: #777777;
+  transition: 0.2s;
+}
+.modal .inner button.search:hover {
+  background-color: #6699cc;
+}
+.modal .inner button.submit {
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin-top: 50px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #f1f1f1;
+  background-color: #669999;
+  transition: 0.2s;
+}
+.modal .inner button.submit:hover {
   background-color: #6699cc;
 }
 .btn-close {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   z-index: 100;
   cursor: pointer;
 }
-.btn-close img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+.btn-close i {
+  font-size: 20px;
+  line-height: 1.6rem;
 }
 
 /* 상단으로 */

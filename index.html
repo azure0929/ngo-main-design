@@ -11,6 +11,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Daum 우편번호 API 추가 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./script.js"></script>
     <!-- jquery cdn -->
@@ -403,35 +405,50 @@
       </footer>
 
       <!-- modal -->
-      <div class="modal-support">
-        <div class="support">
+      <div class="modal">
+        <div class="inner">
           <div class="btn-close">
-            <img src="./images/close.png" alt="close" loading="lazy" />
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
           </div>
           <h1>후원신청서</h1>
           <h4>이름</h4>
-          <label
-            ><input type="text" placeholder="이름을 입력하세요." name="submit"
-          /></label>
-          <h4>이메일</h4>
-          <label
-            ><input
-              type="email"
-              placeholder="이메일을 입력하세요."
-              name="submit"
-          /></label>
-          <h4>주소</h4>
-          <label
-            ><input
-              type="address"
-              placeholder="주소를 입력하세요."
-              name="submit"
-          /></label>
+          <div>
+            <label
+              ><input
+                type="text"
+                placeholder="이름을 입력하세요."
+                name="submit"
+                id="nameInput"
+                maxlength="10"
+            /></label>
+            <h4>이메일</h4>
+            <label
+              ><input
+                type="email"
+                placeholder="이메일을 입력하세요."
+                name="submit"
+                id="emailInput"
+            /></label>
+            <h4>주소</h4>
+            <label
+              ><input
+                type="address"
+                placeholder="주소를 입력하세요."
+                name="submit"
+                id="addressInput"
+                readonly
+            /></label>
+            <button type="button" class="search" onclick="execDaumPostcode()">
+              주소 찾기
+            </button>
+          </div>
           <div class="support-check">
             <label><input type="checkbox" id="chk" /><em></em>정기후원</label>
             <label><input type="checkbox" id="chk" /><em></em>일시후원</label>
           </div>
-          <a class="btn-submit" href="#none">제출하기</a>
+          <form>
+            <button type="button" class="submit">제출하기</button>
+          </form>
         </div>
       </div>
       <div class="top">
