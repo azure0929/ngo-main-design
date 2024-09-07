@@ -171,6 +171,7 @@ video {
   color: #171717;
 }
 .current .inner .animal-list {
+  margin-top: 50px;
   display: flex;
   justify-content: space-between;
 }
@@ -224,10 +225,13 @@ video {
 }
 
 /* Section : Activity */
+.activity {
+  margin-top: 120px;
+}
 .activity-inner {
-  width: 1440px;
-  height: 624px;
-  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .activity-inner p {
   font-size: 24px;
