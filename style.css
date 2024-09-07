@@ -31,7 +31,7 @@ a {
   text-decoration: none;
 }
 
-/* Header */
+/* header */
 header {
   position: fixed;
   width: 100%;
@@ -150,7 +150,7 @@ video {
   font-size: 30px;
 }
 
-/* Section : Current */
+/* section : current */
 .current {
   margin-top: 80px;
 }
@@ -224,7 +224,7 @@ video {
   font-size: 14px;
 }
 
-/* Section : Faq */
+/* section : faq */
 .faq {
   margin-top: 120px;
   height: 350px;
@@ -322,7 +322,7 @@ input[type="checkbox"] {
   display: none;
 }
 
-/* Section : activity */
+/* section : activity */
 .activity {
   margin-top: 120px;
 }
@@ -352,7 +352,7 @@ input[type="checkbox"] {
   height: calc(100% - 20px);
 }
 
-/* Section : Promotion */
+/* section : promotion */
 .promotion {
   margin-top: 120px;
 }
@@ -430,12 +430,11 @@ input[id="tab1"]:checked ~ .items .item:nth-child(1),
 input[id="tab2"]:checked ~ .items .item:nth-child(2),
 input[id="tab3"]:checked ~ .items .item:nth-child(3),
 input[id="tab4"]:checked ~ .items .item:nth-child(4) {
-  /*display: block;*/
   opacity: 1;
   visibility: visible;
 }
 
-/* Footer */
+/* footer */
 footer {
   margin-top: 30px;
   background: url(images/image-22.webp);
@@ -509,7 +508,7 @@ footer .inner .copyright .sel div button {
   cursor: pointer;
 }
 
-/* Modal-support */
+/* modal */
 .modal {
   position: fixed;
   top: 100px;

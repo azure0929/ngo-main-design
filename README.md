@@ -8,7 +8,7 @@
 
 #### - 작업 기간: 2021.06
 
-#### - 리팩토링: 2024.08
+#### - 리팩토링: 2024.09
 
 <br>
 
@@ -39,7 +39,7 @@ Environment
 
 ### 전체 페이지
 
-<img src="https://github.com/azure0929/ngo-main-design/assets/128226527/dd06c984-bf61-4c52-9e21-0c5b85cc35df" />
+<img src="https://github.com/user-attachments/assets/835d2fce-51eb-44d5-8511-21c2e139e747" />
 
 <br><br>
 
@@ -51,49 +51,124 @@ Environment
 
 ```html
 <!-- modal -->
-<div class="modal-support">
-  <div class="support">
-    <i class="btn-close xi-close-thin"></i>
+<div class="modal">
+  <div class="inner">
+    <div class="btn-close">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </div>
     <h1>후원신청서</h1>
     <h4>이름</h4>
-    <label
-      ><input type="text" placeholder="이름을 입력하세요." name="submit"
-    /></label>
-    <h4>이메일</h4>
-    <label
-      ><input type="email" placeholder="이메일을 입력하세요." name="submit"
-    /></label>
-    <h4>주소</h4>
-    <label
-      ><input type="address" placeholder="주소를 입력하세요." name="submit"
-    /></label>
+    <div>
+      <label
+        ><input
+          type="text"
+          placeholder="이름을 입력하세요."
+          name="submit"
+          id="nameInput"
+          maxlength="10"
+      /></label>
+      <h4>이메일</h4>
+      <label
+        ><input
+          type="email"
+          placeholder="이메일을 입력하세요."
+          name="submit"
+          id="emailInput"
+      /></label>
+      <h4>주소</h4>
+      <label
+        ><input
+          type="address"
+          placeholder="주소를 입력하세요."
+          name="submit"
+          id="addressInput"
+          readonly
+      /></label>
+      <button type="button" class="search" onclick="execDaumPostcode()">
+        주소 찾기
+      </button>
+    </div>
     <div class="support-check">
       <label><input type="checkbox" id="chk" /><em></em>정기후원</label>
       <label><input type="checkbox" id="chk" /><em></em>일시후원</label>
     </div>
-    <a class="btn-submit" href="#none">제출하기</a>
+    <form>
+      <button type="button" class="submit">제출하기</button>
+    </form>
   </div>
 </div>
 ```
 
 ```javascript
-/* 후원하기 버튼 Show Hide */
-$(window).scroll(function () {
-  /* 후원하기 버튼 부분 */
-  if ($(window).scrollTop() > 300) {
-    $(".btn-open").addClass("active");
-  } else {
-    $(".btn-open").removeClass("active");
-  }
+/$(document).ready(function () {
+  /* 후원하기 버튼 Show Hide */
+  $(window).scroll(function () {
+    /* 후원하기 버튼 부분 */
+    if ($(window).scrollTop() > 300) {
+      $(".btn-open").addClass("active");
+    } else {
+      $(".btn-open").removeClass("active");
+    }
+
+    /* 상단으로 가기 부분 */
+    if ($(window).scrollTop() > 300) {
+      $(".top").addClass("active");
+    } else {
+      $(".top").removeClass("active");
+    }
+  });
+
+  /* Btn */
+  $(".btn-open").click(function () {
+    $(".modal, body").addClass("active");
+  });
+  $(".btn-close").click(function () {
+    $(".modal, body").removeClass("active");
+  });
+
+  // 이름 입력 검증
+  $("#nameInput").on("input", function () {
+    const value = $(this).val();
+    const regex = /^[가-힣a-zA-Z]*$/;
+
+    if (regex.test(value)) {
+      $(this).css("border", "1px solid blue");
+    } else {
+      $(this).css("border", "1px solid red");
+    }
+  });
+
+  // 이메일 입력 검증
+  $("#emailInput").on("input", function () {
+    const value = $(this).val();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (regex.test(value)) {
+      $(this).css("border", "1px solid blue");
+    } else {
+      $(this).css("border", "1px solid red");
+    }
+  });
+
+  // 입력 필드가 초기화될 때 테두리 색상 변경
+  $(".modal input").on("input", function () {
+    const value = $(this).val();
+    if (value === "") {
+      $(this).css("border", "1px solid #cbcbcb");
+    }
+  });
 });
 
-/* Btn */
-$(".btn-open").click(function () {
-  $(".modal-support, body").addClass("active");
-});
-$(".btn-close").click(function () {
-  $(".modal-support, body").removeClass("active");
-});
+// Daum 주소 검색 API
+function execDaumPostcode() {
+  new daum.Postcode({
+    oncomplete: function (data) {
+      // 도로명 주소 또는 지번 주소
+      const fullAddr = data.roadAddress ? data.roadAddress : data.jibunAddress;
+      $("#addressInput").val(fullAddr);
+    },
+  }).open();
+}
 ```
 
 <br>
@@ -101,6 +176,7 @@ $(".btn-close").click(function () {
 - accordion
 
 ```html
+<!-- section : faq -->
 <section class="faq">
   <div class="faq-accordion">
     <p>FAQ</p>
@@ -173,36 +249,36 @@ $(".btn-close").click(function () {
       </div>
     </div>
     <div class="sns">
-      <a href="#none"><i class="fa fa-facebook"></i></a>
-      <a href="#none"><i class="fa fa-instagram"></i></a>
-      <a href="#none"><i class="fa fa-twitter"></i></a>
-      <a href="#none"><i class="fa fa-youtube-play"></i></a>
+      <a href="#none"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      <a href="#none"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      <a href="#none"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="#none"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
 ```
 
 ```css
-/* Section : Faq */
+/* section : faq */
 .faq {
-  margin-top: 40px;
+  margin-top: 120px;
   height: 350px;
   padding-top: 20px;
-  background: url(images/image-21.jpg);
+  background: url(images/image-21.webp);
 }
 .faq p {
-  text-align: center;
   margin-top: 0;
-  color: #f1f1f1;
   font-size: 24px;
+  text-align: center;
+  color: #f1f1f1;
 }
 .faq-accordion {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 1000px;
-  height: 320px;
-  margin: auto;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
 }
 .accordion {
   width: 430px;
@@ -214,12 +290,12 @@ $(".btn-close").click(function () {
   padding-top: 10px;
 }
 .accordion label {
+  background-color: transparent;
   display: block;
   width: 430px;
   height: 30px;
   margin-top: 12px;
   padding: 0 10px;
-  background-color: transparent;
   border: 2px solid #6699cc;
   border-radius: 10px;
   color: #f1f1f1;
@@ -231,8 +307,6 @@ $(".btn-close").click(function () {
 input[name="faq"] {
   display: none;
 }
-
-/* Faq Checked Funtion */
 input[id="answer1"]:checked ~ .btn-faq label[for="answer1"],
 input[id="answer2"]:checked ~ .btn-faq label[for="answer2"],
 input[id="answer3"]:checked ~ .btn-faq label[for="answer3"],
@@ -275,12 +349,10 @@ input[id="answer5"]:checked ~ .faq-content .faq-introduce:nth-child(5) {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #6699cc;
   margin: 0 5px;
   color: #f1f1f1;
+  background-color: #6699cc;
 }
-
-/* input[type=checkbox] */
 input[type="checkbox"] {
   display: none;
 }
