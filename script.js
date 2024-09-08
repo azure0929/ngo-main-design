@@ -53,7 +53,7 @@ $(document).ready(function () {
   });
 
   /* Btn */
-  $(".btn-open").click(function () {
+  $(".btn-open, footer .support button").click(function () {
     $(".modal, body").addClass("active");
   });
   $(".btn-close").click(function () {
