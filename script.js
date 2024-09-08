@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  AOS.init();
+
   /* 후원하기 버튼 Show Hide */
   $(window).scroll(function () {
     /* 후원하기 버튼 부분 */
@@ -13,6 +15,40 @@ $(document).ready(function () {
       $(".top").addClass("active");
     } else {
       $(".top").removeClass("active");
+    }
+  });
+
+  // bar 버튼 이벤트
+  $(".bar").on("click", function () {
+    $(".sidebar").addClass("active");
+    $(this).css("display", "none");
+  });
+  $(".close-btn i").on("click", function () {
+    $(".sidebar").removeClass("active");
+    $(".bar").css("display", "block");
+  });
+
+  // a 태그를 클릭했을 때 이벤트
+  // 모든 서브메뉴를 숨깁니다.
+  $(".submenu").hide();
+
+  // wrap 클릭 시 이벤트 처리
+  $(".wrap").click(function (e) {
+    e.preventDefault(); // 링크의 기본 동작을 막습니다.
+
+    // 현재 클릭한 wrap의 서브메뉴를 선택합니다.
+    const $submenu = $(this).find(".submenu");
+
+    // 클릭한 wrap의 서브메뉴가 보이지 않는다면, 보여주기
+    if ($submenu.is(":hidden")) {
+      // 모든 서브메뉴를 숨깁니다.
+      $(".submenu").slideUp();
+
+      // 클릭한 wrap의 서브메뉴만 보여줍니다.
+      $submenu.slideDown();
+    } else {
+      // 클릭한 wrap의 서브메뉴가 보이는 상태라면, 숨깁니다.
+      $submenu.slideUp();
     }
   });
 

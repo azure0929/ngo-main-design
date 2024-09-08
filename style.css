@@ -42,17 +42,40 @@ header {
 header .inner {
   max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   height: 70px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
 }
 header .inner nav {
+  position: relative;
   display: flex;
+  gap: 200px;
   width: 100%;
   height: 100%;
   align-items: center;
-  justify-content: space-between;
+}
+.btn-open {
+  color: #f1f1f1;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  border: none;
+  width: 110px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 20px;
+  background-color: #669999;
+  cursor: pointer;
+  transform: translateX(1000px);
+  transition: transform 1.2s ease; /* Smooth transition for button */
+}
+.btn-open.active {
+  transform: translateX(0);
+}
+header .inner .bar {
+  display: none;
 }
 .gnb {
   display: flex;
@@ -75,7 +98,6 @@ header .inner nav {
 .dropdown > a:hover,
 .dropdown-submenu a:hover {
   color: #6699cc;
-  transform: scale(1.1);
 }
 .dropdown-submenu {
   display: none;
@@ -95,7 +117,7 @@ header .inner nav {
 }
 .dropdown-submenu a {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 12px;
   transition: color 0.5s, text-decoration 0.5s;
 }
@@ -106,24 +128,50 @@ header .inner nav {
   color: #6699cc;
   text-decoration: underline;
 }
-.gnb .btn-open {
-  color: #f1f1f1;
-  display: inline-block;
-  border: none;
-  width: 110px;
-  height: 40px;
-  font-size: 20px;
-  margin-left: 20px;
-  margin-top: 5px;
-  font-weight: 500;
-  border-radius: 20px;
-  background-color: #669999;
-  cursor: pointer;
-  transform: translateX(1000px);
-  transition: transform 1.3s ease; /* Smooth transition for button */
+
+/* 반응형 버전 메뉴 스타일 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1000;
+  padding: 24px;
 }
-.gnb .btn-open.active {
-  transform: translateX(0);
+.sidebar.active {
+  left: 0;
+}
+.sidebar .close-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.sidebar .close-btn i {
+  cursor: pointer;
+  font-size: 24px;
+}
+.sidebar nav {
+  margin-top: 50px;
+}
+.sidebar nav .wrap {
+  margin-bottom: 30px;
+}
+.sidebar nav a {
+  display: block;
+  color: #191919;
+  text-decoration: none;
+}
+.sidebar nav > a {
+  font-weight: 500;
+}
+.sidebar nav .submenu {
+  margin-top: 8px;
+}
+.sidebar nav .submenu a {
+  font-weight: normal;
 }
 
 /* section : intro */
@@ -181,7 +229,6 @@ video {
 .current .inner .animal-list .animal .photo {
   width: 250px;
   height: 250px;
-  overflow: hidden;
 }
 .current .inner .animal-list .animal .photo img {
   width: 100%;
@@ -217,8 +264,9 @@ video {
 }
 .current .inner .animal-list .animal .animal-info .animal-detail {
   display: flex;
+  flex-direction: column;
+  gap: 6px;
   justify-content: space-between;
-  width: 100%;
   text-align: center;
   color: #f1f1f1;
   font-size: 14px;
@@ -289,7 +337,7 @@ input[id="answer5"]:checked ~ .btn-faq label[for="answer5"] {
 }
 .faq-content p {
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
 }
 .faq-introduce {
   position: absolute;
@@ -342,7 +390,15 @@ input[type="checkbox"] {
   gap: 20px;
   height: 460px;
 }
+.activity .inner > div iframe {
+  width: 100%;
+  height: 100%;
+}
+.activity .inner > div .left {
+  width: 65%;
+}
 .activity .inner > div .right {
+  width: 35%;
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -393,7 +449,6 @@ input[type="checkbox"] {
   display: flex;
   height: 500px;
   margin-top: 20px;
-  overflow: hidden;
 }
 .promotion .inner .tab-promotion .items .item {
   display: flex;
@@ -405,7 +460,6 @@ input[type="checkbox"] {
   transition: 0.5s;
 }
 .promotion .inner .tab-promotion .items .item a {
-  flex: 1;
   width: calc(100% / 4);
 }
 .promotion .inner .tab-promotion .items .item img {
@@ -436,15 +490,15 @@ input[id="tab4"]:checked ~ .items .item:nth-child(4) {
 
 /* footer */
 footer {
-  margin-top: 30px;
-  background: url(images/image-22.webp);
-  height: 350px;
-  padding-top: 30px;
+  margin-top: 100px;
+  background: url(images/image-22.webp) center center;
+  background-size: cover;
+  height: 400px;
+  padding: 30px;
 }
 footer .inner {
   max-width: 1000px;
   width: 100%;
-  height: 280px;
   margin: 0 auto;
 }
 footer .inner .support {
@@ -653,4 +707,184 @@ input[id="chk"]:checked + em {
 }
 .top a {
   color: #f1f1f1;
+}
+
+/* 반응형 */
+/* (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  /* header */
+  header .inner {
+    width: 920px;
+  }
+  header .inner nav {
+    gap: 10px;
+  }
+  .gnb .btn-open {
+    transform: translateX(300px);
+  }
+  /* current */
+  .current .inner {
+    width: 920px;
+  }
+  .current .inner .animal-list .animal {
+    width: 200px;
+  }
+  .current .inner .animal-list .animal .photo {
+    width: 200px;
+    height: 200px;
+  }
+  .current .inner .animal-list .animal .animal-info p {
+    font-size: 16px;
+  }
+  .current .inner .animal-list .animal .animal-info .animal-detail {
+    font-size: 16px;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .current .inner .animal-list .animal .animal-info .animal-detail span {
+    font-size: 14px;
+  }
+
+  /* faq */
+  .faq-content {
+    width: 360px;
+    right: 24px;
+  }
+  /* activity */
+  .activity .inner {
+    width: 920px;
+  }
+  /* promotion */
+  .promotion .inner {
+    width: 920px;
+  }
+  /* footer */
+  footer {
+    margin-top: 0;
+  }
+  footer .inner {
+    width: 840px;
+  }
+}
+
+/* (해상도 480px ~ 767px)*/
+@media all and (min-width: 480px) and (max-width: 767px) {
+  header {
+    border: 1px solid red;
+  }
+  header .inner nav {
+    display: none;
+  }
+  header .inner .bar {
+    position: absolute;
+    right: 24px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  header .inner .bar i {
+    font-size: 24px;
+  }
+  header .inner .hamburger {
+    display: block;
+  }
+  .sidebar .wrap .submenu a {
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 6px;
+    padding-left: 10px;
+  }
+  .sidebar .wrap .submenu a:last-child {
+    margin-bottom: 0;
+  }
+  /* intro */
+  .intro-slogan {
+    text-align: right;
+  }
+  .intro-slogan h2 {
+    font-size: 26px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  .intro-slogan h4 {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  /* current */
+  .current .inner {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .current .inner .animal-list {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .current .inner .animal-list .animal {
+    width: 330px;
+    height: 330px;
+  }
+  .current .inner .animal-list .animal .photo {
+    width: 100%;
+    height: 100%;
+  }
+  .current .inner .animal-list .animal .animal-info p {
+    font-size: 24px;
+  }
+  .current .inner .animal-list .animal .animal-info .animal-detail span {
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* faq */
+  .faq {
+    display: none;
+  }
+  /* activity */
+  .activity .inner {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .activity .inner > div {
+    flex-direction: column;
+    height: auto;
+  }
+  .activity .inner > div .left {
+    width: 100%;
+    height: 400px;
+  }
+  .activity .inner > div .right {
+    width: 100%;
+    height: 720px;
+  }
+  /* promotion */
+  .promotion {
+    height: 1150px;
+  }
+  .promotion .inner {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .promotion .inner .tab-promotion .items .item {
+    flex-wrap: wrap;
+  }
+  .promotion .inner .tab-promotion .items .item a {
+    flex-basis: 49%;
+  }
+  /* footer */
+  footer {
+    margin-top: 100px;
+  }
+  footer .inner .copyright {
+    margin-top: 30px;
+  }
+  footer .inner .copyright .sel div {
+    flex-direction: column;
+  }
+  footer .inner .copyright .sel div select {
+    height: 36px;
+  }
 }

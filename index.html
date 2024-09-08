@@ -17,6 +17,8 @@
     <script defer src="./script.js"></script>
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- aos cdn -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>NGO-동물보호단체</title>
   </head>
   <body>
@@ -70,11 +72,62 @@
                   <a href="#none">물품후원</a>
                 </div>
               </div>
-              <button class="btn-open">후원하기</button>
             </div>
+            <button class="btn-open">후원하기</button>
           </nav>
+          <div class="bar" role="button">
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </div>
       </header>
+      <div class="sidebar">
+        <div class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <nav>
+          <div class="wrap">
+            <a href="#none">단체소개</a>
+            <div class="submenu">
+              <a href="#none">미션·비전</a>
+              <a href="#none">단원소개</a>
+              <a href="#none">부설기관</a>
+              <a href="#none">연혁</a>
+            </div>
+          </div>
+          <div class="wrap">
+            <a href="#none">활동</a>
+            <div class="submenu">
+              <a href="#none">길고양이</a>
+              <a href="#none">반려동물</a>
+              <a href="#none">교육·문화</a>
+            </div>
+          </div>
+          <div class="wrap">
+            <a href="#none">참여·봉사</a>
+            <div class="submenu">
+              <a href="#none">이슈참여</a>
+              <a href="#none">시민지원</a>
+              <a href="#none">봉사신청</a>
+            </div>
+          </div>
+          <div class="wrap">
+            <a href="#none">입양</a>
+            <div class="submenu">
+              <a href="#none">입양하기</a>
+              <a href="#none">입양후기</a>
+              <a href="#none">입양현황</a>
+            </div>
+          </div>
+          <div class="wrap">
+            <a href="#none">후원</a>
+            <div class="submenu">
+              <a href="#none">정기후원</a>
+              <a href="#none">일시후원</a>
+              <a href="#none">물품후원</a>
+            </div>
+          </div>
+        </nav>
+      </div>
 
       <main>
         <!-- section : intro -->
@@ -89,9 +142,11 @@
         <!-- section : current -->
         <section class="current">
           <div class="inner">
-            <p class="title">유기동물 현황</p>
+            <p class="title" data-aos="fade-up" data-aos-duration="300">
+              유기동물 현황
+            </p>
             <div class="animal-list">
-              <div class="animal">
+              <div class="animal" data-aos="fade-up" data-aos-duration="300">
                 <div class="photo">
                   <img src="images/image-01.webp" alt="추추" loading="lazy" />
                 </div>
@@ -105,7 +160,7 @@
                   </div>
                 </div>
               </div>
-              <div class="animal">
+              <div class="animal" data-aos="fade-up" data-aos-duration="500">
                 <div class="photo">
                   <img src="images/image-02.webp" alt="홀리" loading="lazy" />
                 </div>
@@ -119,7 +174,7 @@
                   </div>
                 </div>
               </div>
-              <div class="animal">
+              <div class="animal" data-aos="fade-up" data-aos-duration="700">
                 <div class="photo">
                   <img src="images/image-03.webp" alt="크리드" loading="lazy" />
                 </div>
@@ -133,7 +188,7 @@
                   </div>
                 </div>
               </div>
-              <div class="animal">
+              <div class="animal" data-aos="fade-up" data-aos-duration="900">
                 <div class="photo">
                   <img src="images/image-04.webp" alt="상혁" loading="lazy" />
                 </div>
@@ -187,10 +242,7 @@
                     1) 정기후원<br />동물자유연대 홈페이지에서 후원하기를
                     선택하시어 작성하시면 됩니다.<br />
                     2) 일시후원<br />정기적으로 후원하는 것이 아닌 일회성으로
-                    후원해주시는 방법입니다.<br />
-                    3) 물품후원<br />보내주신 물품은 반려동물복지센터에서
-                    소중하게 사용됩니다.물품 수령 후 사랑곳간 게시판에
-                    올려드리고 있어서 나중에도 확인이 가능하십니다.
+                    후원해주시는 방법입니다.
                   </p>
                 </div>
                 <div class="faq-introduce">
@@ -224,8 +276,7 @@
                     있습니다.<br />원하는 동물에 따라 사전에 충분히 정보를
                     수집하여 해당 동물의 특징을 인지하고 직·간접적으로 경험을
                     하시는것이 중요합니다.<br />개들은 짖기도하고 배변실수도 할
-                    수 있으며, 매일 산책을 해주어야 합니다.<br />장시간 혼자
-                    두는 것 보다는 가족과 함께하는 시간이 많은 것이 좋습니다.
+                    수 있으며, 매일 산책을 해주어야 합니다.
                   </p>
                 </div>
               </div>
@@ -250,24 +301,23 @@
         <!-- section : activity -->
         <section class="activity" id="part1">
           <div class="inner">
-            <p class="title">캠페인·봉사활동</p>
+            <p class="title" data-aos="fade-up" data-aos-duration="300">
+              캠페인·봉사활동
+            </p>
             <div>
-              <div class="left">
+              <div class="left" data-aos="fade-up" data-aos-duration="500">
                 <iframe
-                  width="730"
-                  height="100%"
-                  src="https://www.youtube.com/embed/f6X9lDYZlUU"
+                  src="https://www.youtube.com/embed/f6X9lDYZlUU?autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
+                  autoplay
                 ></iframe>
               </div>
               <div class="right">
-                <div>
+                <div data-aos="fade-up" data-aos-duration="500">
                   <iframe
-                    width="446"
-                    height="100%"
                     src="https://www.youtube.com/embed/AP3pIGvbeNE"
                     title="YouTube video player"
                     frameborder="0"
@@ -275,10 +325,8 @@
                     allowfullscreen
                   ></iframe>
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-duration="500">
                   <iframe
-                    width="446"
-                    height="100%"
                     src="https://www.youtube.com/embed/zmzJtViE5iU"
                     title="YouTube video player"
                     frameborder="0"
@@ -294,74 +342,82 @@
         <!-- section : promotion -->
         <section class="promotion" id="part2">
           <div class="inner">
-            <p>SNS</p>
+            <p class="title" data-aos="fade-up" data-aos-duration="300">SNS</p>
             <div class="tab-promotion">
               <input type="radio" name="tabmenu" id="tab1" checked />
               <input type="radio" name="tabmenu" id="tab2" />
               <input type="radio" name="tabmenu" id="tab3" />
               <input type="radio" name="tabmenu" id="tab4" />
               <div class="btn">
-                <label for="tab1">Facebook</label>
-                <label for="tab2">Instagram</label>
-                <label for="tab3">Blog</label>
-                <label for="tab4">Twitter</label>
+                <label for="tab1" data-aos="fade-up" data-aos-duration="500"
+                  >Facebook</label
+                >
+                <label for="tab2" data-aos="fade-up" data-aos-duration="500"
+                  >Instagram</label
+                >
+                <label for="tab3" data-aos="fade-up" data-aos-duration="500"
+                  >Blog</label
+                >
+                <label for="tab4" data-aos="fade-up" data-aos-duration="500"
+                  >Twitter</label
+                >
               </div>
               <div class="items">
                 <div class="item">
-                  <a href="#none"
-                    ><img src="images/image-05.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-06.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-07.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-08.webp" loading="lazy"
-                  /></a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-05.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-06.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-07.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-08.webp" loading="lazy" />
+                  </a>
                 </div>
                 <div class="item">
-                  <a href="#none"
-                    ><img src="images/image-09.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-10.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-11.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-12.webp" loading="lazy"
-                  /></a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-09.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-10.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-11.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-12.webp" loading="lazy" />
+                  </a>
                 </div>
                 <div class="item">
-                  <a href="#none"
-                    ><img src="images/image-13.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-14.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-15.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-16.webp" loading="lazy"
-                  /></a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-13.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-14.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-15.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-16.webp" loading="lazy" />
+                  </a>
                 </div>
                 <div class="item">
-                  <a href="#none"
-                    ><img src="images/image-17.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-18.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-19.webp" loading="lazy"
-                  /></a>
-                  <a href="#none"
-                    ><img src="images/image-20.webp" loading="lazy"
-                  /></a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-17.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-18.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-19.webp" loading="lazy" />
+                  </a>
+                  <a href="#none" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/image-20.webp" loading="lazy" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -454,5 +510,8 @@
         <a href="#"><i class="fa-solid fa-angle-up"></i></a>
       </div>
     </div>
+
+    <!-- aos cdn -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
 </html>
