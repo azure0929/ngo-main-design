@@ -883,10 +883,7 @@ input[id="chk"]:checked + em {
   }
 }
 
-@media all and (min-width: 0) and (max-width: 479px) {
-  header {
-    border: 1px solid red;
-  }
+@media (max-width: 479px) {
   header .inner nav {
     display: none;
   }
@@ -919,9 +916,6 @@ input[id="chk"]:checked + em {
     padding: 0;
   }
   /* current */
-  .current {
-    border: 1px solid #000;
-  }
   .current .inner {
     width: 100%;
     padding: 0 24px;
