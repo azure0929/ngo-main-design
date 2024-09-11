@@ -889,8 +889,6 @@ input[id="chk"]:checked + em {
   }
   header .inner .bar {
     display: block;
-  }
-  header .inner .bar {
     position: absolute;
     right: 24px;
     width: 32px;
